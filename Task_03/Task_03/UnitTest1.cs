@@ -24,16 +24,29 @@ namespace Task_03
             try
             {
                 driver.Manage().Window.Position = new Point(0, 0);
-                driver.Manage().Timeouts().ImplicitWait = new TimeSpan(120);
+                driver.Manage().Timeouts().ImplicitWait = new TimeSpan(0, 2, 0);
+                driver.Manage().Timeouts().PageLoad = new TimeSpan(0, 2, 0);
+                //driver.Manage().Timeouts().SetPageLoadTimeout = new TimeSpan(0, 2, 0);
                 driver.Navigate().GoToUrl("http://localhost:8080/litecart/admin/login.php");
                 string locUserName = "//input[@name='username']";
                 string locPassword = "//input[@name='password']";
                 string txtCredential = "admin";
-                string locLoginBtn = "//button";
+                //string locLoginBtn = "//button";
                 WaitForLoading(driver, locUserName);
                 driver.FindElement(By.XPath(locUserName)).SendKeys(txtCredential);
                 driver.FindElement(By.XPath(locPassword)).SendKeys(txtCredential);
-                driver.FindElement(By.XPath(locLoginBtn)).Click();
+                try
+                {
+                    driver.FindElement(By.XPath(locPassword)).SendKeys(Keys.Enter);
+                }
+                catch (Exception)
+                {
+
+                }
+                Thread.Sleep(5000);
+                driver.Navigate().GoToUrl("http://localhost:8080/litecart/admin/?app=appearance&doc=template");
+                
+                //driver.FindElement(By.XPath(locLoginBtn)).Click();
             }
             finally
             {
