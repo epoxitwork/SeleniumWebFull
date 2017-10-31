@@ -9,13 +9,14 @@ namespace SeleniumFull
     public class AllLoc
     {
         public static string baseURL = "http://localhost:8080/";
+        
         public static string attrTitle = "title";
         public static string h1 = "//h1";
         public static Llocator H1 = new Llocator(Locator.XPath, h1);
         #region Admin        
         public static string adminUrl = "litecart/admin/login.php";
         public static string username = "//input[@name='username']";
-        public static Llocator Username = new Llocator(Locator.XPath, username); 
+        public static Llocator Username = new Llocator(Locator.XPath, username);
         public static string password = "//input[@name='password']";
         public static Llocator Password = new Llocator(Locator.XPath, password); 
         public static string credential = "admin";
@@ -33,7 +34,11 @@ namespace SeleniumFull
         #endregion
 
         #region User
-
+        public static string UserURL = "litecart/en/";
+        public static string tovar = "//div[@class='content']//a[@class='link']";
+        public static Llocator Tovar = new Llocator(Locator.XPath, tovar);
+        public static string sticker = ".//div[@class='image-wrapper']/div";
+        public static Llocator Sticker = new Llocator(Locator.XPath, sticker);
         #endregion
     }
 }

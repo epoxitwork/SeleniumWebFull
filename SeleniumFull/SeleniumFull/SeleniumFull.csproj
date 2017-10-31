@@ -65,12 +65,13 @@
   <ItemGroup>
     <Compile Include="AllLoc.cs" />
     <Compile Include="AppManager.cs" />
-    <Compile Include="Bases\AuthBase.cs" />
+    <Compile Include="Bases\AdminBase.cs" />
+    <Compile Include="Bases\UserBase.cs" />
     <Compile Include="Helpers\CommHelper.cs" />
     <Compile Include="Helpers\UserMetods.cs" />
     <Compile Include="Llocator.cs" />
-    <Compile Include="Tests\AdminTests.cs" />
-    <Compile Include="Tests\UserTests.cs" />
+    <Compile Include="Tests\Task_07_ClickMenuAndFindH1.cs" />
+    <Compile Include="Tests\Task_08_FindStickers.cs" />
     <Compile Include="Bases\HelperBase.cs" />
     <Compile Include="Bases\TestBase.cs" />
     <Compile Include="Tests\Task_03_AdminLogin.cs" />

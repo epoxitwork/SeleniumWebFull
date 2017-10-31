@@ -2,6 +2,7 @@
 using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading;
@@ -83,6 +84,15 @@ namespace SeleniumFull
             By typeByAndValue = GetTypeByLocator(locator);
             var tmp = app.driver.FindElements(typeByAndValue);
             return app.driver.FindElements(typeByAndValue);
+        }
+        public void Output(List<string> result, string filename)
+        {
+            StreamWriter writer = new StreamWriter(filename, false);
+            for (int j = 0; j < result.Count; j++)
+            {
+                writer.WriteLine(result[j]);
+            }
+            writer.Close();
         }
     }
 }

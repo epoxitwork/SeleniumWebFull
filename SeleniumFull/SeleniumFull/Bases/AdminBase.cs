@@ -7,15 +7,14 @@ using System.Threading.Tasks;
 
 namespace SeleniumFull
 {
-    [TestFixture]
-    public class Task_03 : TestBase
+    public class AdminBase : TestBase
     {
-        [Test]
-        public void Task_03_AdminLogin()
+        [SetUp]
+        public void AdminAuth()
         {
+            app = AppManager.GetInstance();
             app.AdminMetods.OpenAdminPage();
             string loginResult = app.AdminMetods.Login();
-            Assert.AreEqual(loginResult, AllLoc.trueLogin);
         }
     }
 }
