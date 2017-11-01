@@ -14,7 +14,7 @@ namespace SeleniumFull
         public void Task_08_FindStickers()
         {            
             var result =  app.UserMetods.CheckStickers();
-            app.Cmhelp.Output(result, "Task_08_Report.txt");
+            app.Cmhelp.Output(result, DB.t_08_report);
         }
     }
 }

@@ -15,7 +15,7 @@ namespace SeleniumFull
         {
             app.AdminMetods.OpenAdminPage();
             string loginResult = app.AdminMetods.Login();
-            Assert.AreEqual(loginResult, AllLoc.trueLogin);
+            Assert.AreEqual(loginResult, DB.trueLogin);
         }
     }
 }

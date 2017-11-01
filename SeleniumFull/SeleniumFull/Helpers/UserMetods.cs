@@ -15,20 +15,20 @@ namespace SeleniumFull
         }
         public void OpenUserPage()
         {
-            app.driver.Navigate().GoToUrl(AllLoc.baseURL + AllLoc.UserURL);
+            app.driver.Navigate().GoToUrl(DB.baseURL + DB.UserURL);
         }
         public List<string> CheckStickers()
         {
             ReadOnlyCollection<IWebElement> allTovars;
             ReadOnlyCollection<IWebElement> allStickers;
             List<string> stickersResult = new List<string>();
-            allTovars = app.Cmhelp.GetAllElements(AllLoc.Tovar);
+            allTovars = app.Cmhelp.GetAllElements(DB.Tovar);
             for (int i = 0; i < allTovars.Count; i++)
             {
-                allStickers = allTovars[i].FindElements(By.XPath(AllLoc.sticker));
+                allStickers = allTovars[i].FindElements(By.XPath(DB.sticker));
                 if (allStickers.Count == 1)
-                    stickersResult.Add(allTovars[i].GetAttribute("title") + ": Stickers == 1;");
-                else stickersResult.Add(allTovars[i].GetAttribute("title") + ": Stickers != 1;");
+                    stickersResult.Add(allTovars[i].GetAttribute(DB.attrTitle) + ": Stickers == 1;");
+                else stickersResult.Add(allTovars[i].GetAttribute(DB.attrTitle) + ": Stickers != 1;");
             }
             return stickersResult;
         }        

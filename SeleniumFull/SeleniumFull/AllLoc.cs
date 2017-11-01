@@ -6,10 +6,9 @@ using System.Threading.Tasks;
 
 namespace SeleniumFull
 {
-    public class AllLoc
+    public class DB
     {
-        public static string baseURL = "http://localhost:8080/";
-        
+        public static string baseURL = "http://localhost:8080/";        
         public static string attrTitle = "title";
         public static string h1 = "//h1";
         public static Llocator H1 = new Llocator(Locator.XPath, h1);
@@ -37,8 +36,14 @@ namespace SeleniumFull
         public static string UserURL = "litecart/en/";
         public static string tovar = "//div[@class='content']//a[@class='link']";
         public static Llocator Tovar = new Llocator(Locator.XPath, tovar);
-        public static string sticker = ".//div[@class='image-wrapper']/div";
+        public static string sticker = ".//div[@class='image-wrapper']/div[starts-with(@class,'sticker')]";
         public static Llocator Sticker = new Llocator(Locator.XPath, sticker);
+        #endregion
+        #region User
+        public static string t_07_report = "Task_07_Report.txt";
+        public static string t_08_report = "Task_08_Report.txt";
+
+
         #endregion
     }
 }
