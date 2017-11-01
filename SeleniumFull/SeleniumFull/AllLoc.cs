@@ -34,7 +34,7 @@ namespace SeleniumFull
 
         #region User
         public static string UserURL = "litecart/en/";
-        public static string tovar = "//div[@class='content']//a[@class='link']";
+        public static string tovar = "//li[starts-with(@class,'product')]//a[@class='link']";
         public static Llocator Tovar = new Llocator(Locator.XPath, tovar);
         public static string sticker = ".//div[@class='image-wrapper']/div[starts-with(@class,'sticker')]";
         public static Llocator Sticker = new Llocator(Locator.XPath, sticker);

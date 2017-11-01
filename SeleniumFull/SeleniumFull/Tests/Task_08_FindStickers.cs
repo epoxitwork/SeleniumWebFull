@@ -15,6 +15,8 @@ namespace SeleniumFull
         {            
             var result =  app.UserMetods.CheckStickers();
             app.Cmhelp.Output(result, DB.t_08_report);
+            //result.Add("Purple Duck: Stickers != 1;");//для проверки
+            Assert.IsFalse(app.UserMetods.CheckResult(result));
         }
     }
 }

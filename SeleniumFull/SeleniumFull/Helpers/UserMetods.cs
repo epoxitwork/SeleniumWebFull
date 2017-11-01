@@ -31,6 +31,17 @@ namespace SeleniumFull
                 else stickersResult.Add(allTovars[i].GetAttribute(DB.attrTitle) + ": Stickers != 1;");
             }
             return stickersResult;
-        }        
+        }
+
+        public bool CheckResult(List<string> result)
+        {
+            for (int i = 0; i < result.Count; i++)
+            {
+                if (result[i].Contains("!="))
+                    return true;                
+            }
+            return false;
+
+        }
     }
 }
