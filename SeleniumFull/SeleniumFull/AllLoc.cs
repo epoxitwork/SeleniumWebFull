@@ -39,7 +39,7 @@ namespace SeleniumFull
         public static string sticker = ".//div[@class='image-wrapper']/div[starts-with(@class,'sticker')]";
         public static Llocator Sticker = new Llocator(Locator.XPath, sticker);
         #endregion
-        #region User
+        #region Reports
         public static string t_07_report = "Task_07_Report.txt";
         public static string t_08_report = "Task_08_Report.txt";
 

@@ -32,7 +32,6 @@ namespace SeleniumFull
             }
             return stickersResult;
         }
-
         public bool CheckResult(List<string> result)
         {
             for (int i = 0; i < result.Count; i++)
@@ -41,7 +40,6 @@ namespace SeleniumFull
                     return true;                
             }
             return false;
-
         }
     }
 }
