@@ -12,8 +12,12 @@ namespace SeleniumFull
         public static string attrTitle = "title";
         public static string h1 = "//h1";
         public static Llocator H1 = new Llocator(Locator.XPath, h1);
-        #region Admin        
+        #region Urls
         public static string adminUrl = "litecart/admin/login.php";
+        public static string countryUrl = "litecart/admin/?app=countries&doc=countries";
+        public static string zoneUrl = "litecart/admin/?app=geo_zones&doc=geo_zones";
+        #endregion
+        #region Admin
         public static string username = "//input[@name='username']";
         public static Llocator Username = new Llocator(Locator.XPath, username);
         public static string password = "//input[@name='password']";
@@ -30,20 +34,36 @@ namespace SeleniumFull
         public static Llocator AdminMenu1lvl = new Llocator(Locator.XPath, adminMenu1lvl); 
         public static string adminMenu2lvl = "//*[@class='selected']//li";
         public static Llocator AdminMenu2lvl = new Llocator(Locator.XPath, adminMenu2lvl);
+        public static string countryName = "//*[@class='dataTable']//td[5]/a[contains(@href, 'edit_country')]";
+        public static Llocator CountryName = new Llocator(Locator.XPath, countryName);
+        public static string geozoneNum = "//*[@class='dataTable']//td[6]";
+        public static Llocator GeozoneNum = new Llocator(Locator.XPath, geozoneNum);
+        public static string geozoneName = "//*[@id='table-zones']//td[3]";
+        public static Llocator GeozoneName = new Llocator(Locator.XPath, geozoneName);
+        public static string geozoneSelect = "//*[@id='table-zones']//td[3]//option[@selected='selected']";
+        public static Llocator GeozoneSelect = new Llocator(Locator.XPath, geozoneSelect);
+
         #endregion
 
         #region User
         public static string UserURL = "litecart/en/";
         public static string tovar = "//li[starts-with(@class,'product')]//a[@class='link']";
         public static Llocator Tovar = new Llocator(Locator.XPath, tovar);
-        public static string sticker = ".//div[@class='image-wrapper']/div[starts-with(@class,'sticker')]";
+        public static string sticker = "//div[@class='image-wrapper']/div[starts-with(@class,'sticker')]";
         public static Llocator Sticker = new Llocator(Locator.XPath, sticker);
         #endregion
         #region Reports
+
+        
+
+
+        #endregion
+
+        #region Reports
         public static string t_07_report = "Task_07_Report.txt";
         public static string t_08_report = "Task_08_Report.txt";
-
-
+        public static string t_091_report = "Task_091_Report.txt";
+        public static string t_092_report = "Task_092_Report.txt";
         #endregion
     }
 }

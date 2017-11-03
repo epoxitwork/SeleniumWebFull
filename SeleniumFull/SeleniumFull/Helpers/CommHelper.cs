@@ -94,5 +94,9 @@ namespace SeleniumFull
             }
             writer.Close();
         }
+        public void OpenTargetPage(string targetUrl)
+        {
+            app.driver.Navigate().GoToUrl(DB.baseURL + targetUrl);
+        }
     }
 }

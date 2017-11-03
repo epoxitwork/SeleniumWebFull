@@ -14,10 +14,6 @@ namespace SeleniumFull
             : base(app)
         {
         }
-        public void OpenAdminPage()
-        {
-            app.driver.Navigate().GoToUrl(DB.baseURL + DB.adminUrl);
-        }
         public string Login()
         {
             app.Cmhelp.WaitForLoading(DB.Username);
@@ -27,7 +23,7 @@ namespace SeleniumFull
             {
                 app.Cmhelp.ClickButton(DB.BtnLogin);
             }
-            catch (Exception)
+            catch (WebDriverException)//(Exception)
             {
                 Thread.Sleep(100);
             }
@@ -57,7 +53,7 @@ namespace SeleniumFull
             }
             return h1NoExist;
         }
-        private void Checking(IWebElement allElements1lvl, List<string> h1NoExist, out string btnText, out string h1, string lvl)
+        public void Checking(IWebElement allElements1lvl, List<string> h1NoExist, out string btnText, out string h1, string lvl)
         {
             string result = "";
             btnText = allElements1lvl.Text;
@@ -70,6 +66,34 @@ namespace SeleniumFull
             }
             else result = lvl + "btnText:'" + btnText + "' == h1:'" + h1 + "'";
             h1NoExist.Add(result);
+        }
+        public List<string> GetTextFromItems(ReadOnlyCollection<IWebElement> arrayFromSite)
+        {
+            List<string> listFromSite = new List<string>();
+            for (int j = 0; j < arrayFromSite.Count; j++)
+            {
+                if (arrayFromSite[j].Text != "")
+                    listFromSite.Add(arrayFromSite[j].Text);
+            }
+            return listFromSite;
+        }
+        public bool CheckingSorting(List<string> listFromSite)
+        {
+            List<string> sortedlist = listFromSite;
+            sortedlist.Sort();
+            var asd = sortedlist.Equals(listFromSite);
+            return sortedlist.Equals(listFromSite);
+        }
+        public List<string> GetGeoLinkFromSite(ReadOnlyCollection<IWebElement> arrayFromSite)
+        {
+            var arrayGeozones = app.Cmhelp.GetAllElements(DB.GeozoneNum);
+            List<string> linksCountryWithGeozones = new List<string>();
+            for (int j = 0; j < arrayFromSite.Count; j++)
+            {                
+                if (arrayGeozones[j].Text != "0")
+                    linksCountryWithGeozones.Add(arrayFromSite[j].GetAttribute("href").Substring(22));
+            }
+            return linksCountryWithGeozones;
         }
     }
 }

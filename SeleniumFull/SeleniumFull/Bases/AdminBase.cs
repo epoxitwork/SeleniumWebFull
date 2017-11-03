@@ -13,7 +13,7 @@ namespace SeleniumFull
         public void AdminAuth()
         {
             app = AppManager.GetInstance();
-            app.AdminMetods.OpenAdminPage();
+            app.Cmhelp.OpenTargetPage(DB.adminUrl);
             string loginResult = app.AdminMetods.Login();
         }
     }

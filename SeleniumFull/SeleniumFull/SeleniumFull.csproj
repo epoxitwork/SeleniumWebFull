@@ -70,6 +70,8 @@
     <Compile Include="Helpers\CommHelper.cs" />
     <Compile Include="Helpers\UserMetods.cs" />
     <Compile Include="Llocator.cs" />
+    <Compile Include="Tests\Task_01.cs" />
+    <Compile Include="Tests\Task_09_SortingAndGeozones.cs" />
     <Compile Include="Tests\Task_07_ClickMenuAndFindH1.cs" />
     <Compile Include="Tests\Task_08_FindStickers.cs" />
     <Compile Include="Bases\HelperBase.cs" />

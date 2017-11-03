@@ -13,7 +13,7 @@ namespace SeleniumFull
         [Test]
         public void Task_03_AdminLogin()
         {
-            app.AdminMetods.OpenAdminPage();
+            app.Cmhelp.OpenTargetPage(DB.adminUrl);
             string loginResult = app.AdminMetods.Login();
             Assert.AreEqual(loginResult, DB.trueLogin);
         }
