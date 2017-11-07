@@ -67,9 +67,11 @@
     <Compile Include="AppManager.cs" />
     <Compile Include="Bases\AdminBase.cs" />
     <Compile Include="Bases\UserBase.cs" />
+    <Compile Include="UserData.cs" />
     <Compile Include="Helpers\CommHelper.cs" />
     <Compile Include="Helpers\UserMetods.cs" />
     <Compile Include="Llocator.cs" />
+    <Compile Include="Tests\Task_11_CreateNewUser.cs" />
     <Compile Include="Tests\Task_10_CheckTheRightPage.cs" />
     <Compile Include="Tests\Task_01.cs" />
     <Compile Include="Tests\Task_09_SortingAndGeozones.cs" />

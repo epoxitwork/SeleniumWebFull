@@ -1,9 +1,11 @@
 ﻿using OpenQA.Selenium;
+using OpenQA.Selenium.Support.UI;
 using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.IO;
 using System.Linq;
+using System.Security.Cryptography;
 using System.Text;
 using System.Threading;
 using System.Threading.Tasks;
@@ -51,7 +53,10 @@ namespace SeleniumFull
                     typeByAndValue = By.XPath(locator.TargetText);
                     break;
                 case Locator.TagName:
-                    typeByAndValue = By.XPath(locator.TargetText);
+                    typeByAndValue = By.TagName(locator.TargetText);
+                    break;
+                case Locator.Id:
+                    typeByAndValue = By.Id(locator.TargetText);
                     break;
                 default:
                     throw new Exception(string.Format("Locator type #{0} not supported", locator.Type));
@@ -85,9 +90,9 @@ namespace SeleniumFull
             var tmp = app.driver.FindElements(typeByAndValue);
             return app.driver.FindElements(typeByAndValue);
         }
-        public void Output(List<string> result, string filename)
+        public void Output(List<string> result, string filename, bool NoOverWrite)
         {
-            StreamWriter writer = new StreamWriter(filename, false);
+            StreamWriter writer = new StreamWriter(filename, NoOverWrite);
             for (int j = 0; j < result.Count; j++)
             {
                 writer.WriteLine(result[j]);
@@ -97,6 +102,48 @@ namespace SeleniumFull
         public void OpenTargetPage(string targetUrl)
         {
             app.driver.Navigate().GoToUrl(DB.baseURL + targetUrl);
+        }
+        public string GenerateRandomString(int length, int type)
+        {
+            if (type == 99)
+                return Path.GetRandomFileName().Substring(0, length);
+            else
+            {
+                var rng = RandomNumberGenerator.Create();
+                var gg = RandomGenerator(rng, length, type);
+                return gg;
+            }
+            //Внутри себя метод Path.GetRandomFileName() получает случайные байты из «криптографически правильного» генератора случайных чисел RNGCryptoServiceProvider. 
+            //А потом он использует побитовые И чтобы заполнить StringBuilder символами основанными на этих байтах.
+        }
+        public static string RandomGenerator(RandomNumberGenerator rng, int length, int type)
+        {
+            string validAllChars = "qwertyuiopasdfghjklzxcvbnm1234567890-=~!@#$%^&*()_+QWERTYUIOP{}ASDFGHJKL:|ZXCVBNM<>?йцукенгшщзхъфывапролджэячсмитьбю.ЙЦУКЕНГШЩЗХЪФЫВАПРОЛДЖЭЯЧСМИТЬБЮ";
+            string validEnChars = "qwertyuiopasdfghjklzxcvbnmQWERTYUIOPASDFGHJKLZXCVBNM";
+            string validRuChars = "йцукенгшщзхъфывапролджэячсмитьбюЙЦУКЕНГШЩЗХЪФЫВАПРОЛДЖЭЯЧСМИТЬБЮ";
+            string validNum = "1234567890";
+            string[] validChars = new string[4];
+            validChars[0] = validAllChars;
+            validChars[1] = validEnChars;
+            validChars[2] = validRuChars;
+            validChars[3] = validNum;
+            char[] chars = new char[length];
+
+            for (int i = 0; i < length; i++)
+            {
+                byte[] bytes = new byte[1];
+                rng.GetBytes(bytes);
+                Random rnd = new Random(bytes[0]);
+                chars[i] = validChars[type][rnd.Next(0, validChars[type].Length - 1)];
+            }
+            return (new string(chars));
+        }
+
+        public int SimpleRnd(int min, int max)
+        {
+            Random rand = new Random();
+            int output = rand.Next(min, max);
+            return output;
         }
     }
 }

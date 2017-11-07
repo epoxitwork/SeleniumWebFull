@@ -14,7 +14,7 @@ namespace SeleniumFull
         public void Task_07_ClickMenuAndFindH1()
         {
             var result = app.AdminMetods.ClickLeftMenu();
-            app.Cmhelp.Output(result, DB.t_07_report);
+            app.Cmhelp.Output(result, DB.t_07_report, false);
         }
     }
 }

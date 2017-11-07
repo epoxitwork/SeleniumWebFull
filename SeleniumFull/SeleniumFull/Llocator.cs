@@ -13,7 +13,8 @@ namespace SeleniumFull
         LinkText,
         CssSelector,
         XPath,
-        TagName
+        TagName,
+        Id
     }
     public class Llocator
     {

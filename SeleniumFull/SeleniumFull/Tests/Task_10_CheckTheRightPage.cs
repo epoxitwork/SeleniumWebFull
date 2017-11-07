@@ -37,7 +37,7 @@ namespace SeleniumFull
         #region Metods
         private void Actions(IWebDriver driver)
         {
-            driver.Navigate().GoToUrl(DB.baseURL + DB.UserURL);
+            driver.Navigate().GoToUrl(DB.baseURL + DB.userURL);
             Thread.Sleep(1000);
             var arrayNamesMainPage = driver.FindElements(By.XPath(DB.itemNameOnStartPage));
             var arrayLinksMainPage = driver.FindElements(By.XPath(DB.itemLinkOnStartPage));
