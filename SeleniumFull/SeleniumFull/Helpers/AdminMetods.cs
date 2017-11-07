@@ -91,7 +91,7 @@ namespace SeleniumFull
             for (int j = 0; j < arrayFromSite.Count; j++)
             {                
                 if (arrayGeozones[j].Text != "0")
-                    linksCountryWithGeozones.Add(arrayFromSite[j].GetAttribute("href").Substring(22));
+                    linksCountryWithGeozones.Add(arrayFromSite[j].GetAttribute(DB.attrHref).Substring(22));
             }
             return linksCountryWithGeozones;
         }

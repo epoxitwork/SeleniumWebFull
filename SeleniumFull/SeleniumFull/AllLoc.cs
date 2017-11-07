@@ -10,6 +10,7 @@ namespace SeleniumFull
     {
         public static string baseURL = "http://localhost:8080/";        
         public static string attrTitle = "title";
+        public static string attrHref = "href";
         public static string h1 = "//h1";
         public static Llocator H1 = new Llocator(Locator.XPath, h1);
         #region Urls
@@ -51,6 +52,15 @@ namespace SeleniumFull
         public static Llocator Tovar = new Llocator(Locator.XPath, tovar);
         public static string sticker = "//div[@class='image-wrapper']/div[starts-with(@class,'sticker')]";
         public static Llocator Sticker = new Llocator(Locator.XPath, sticker);
+        public static string itemNameOnStartPage2 = "//*div[@class='box']//div[@class='name']";
+        public static string itemNameOnStartPage = "//*[@id='box-campaigns']//div[@class='name']";
+        public static Llocator ItemNameOnStartPage = new Llocator(Locator.XPath, itemNameOnStartPage);
+        public static string itemNameOnItemPage = "//*[@id='box-product']//h1";
+        public static Llocator ItemNameOnItemPage = new Llocator(Locator.XPath, itemNameOnItemPage);
+        public static string itemLinkOnStartPage = "//*[@id='box-campaigns']//li/a[@class='link']";
+        public static Llocator ItemLinkOnStartPage = new Llocator(Locator.XPath, itemLinkOnStartPage);
+        //public static string name = ".name";
+        //public static Llocator Name = new Llocator(Locator.CssSelector, name);
         #endregion
         #region Reports
 
