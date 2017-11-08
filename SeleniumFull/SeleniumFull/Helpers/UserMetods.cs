@@ -57,7 +57,7 @@ namespace SeleniumFull
         }
         public string FillInFields(UserData newUser)
         {
-            var allCountries = app.driver.FindElements(By.XPath(DB.allCountries));
+            var allCountries = app.Cmhelp.GetAllElements(DB.AllCountries);//app.driver.FindElements(By.XPath(DB.allCountries));
             int randomNum = app.Cmhelp.SimpleRnd(1, allCountries.Count-1);
             string countryName = allCountries[randomNum].Text;
             string countryPhone = allCountries[randomNum].GetAttribute(DB.attrPhonecode);

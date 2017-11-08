@@ -17,12 +17,14 @@ namespace SeleniumFull
         
         public static string h1 = "//h1";
         public static Llocator H1 = new Llocator(Locator.XPath, h1);
+
         #region Urls
         public static string adminUrl = "litecart/admin/login.php";
         public static string countryUrl = "litecart/admin/?app=countries&doc=countries";
         public static string zoneUrl = "litecart/admin/?app=geo_zones&doc=geo_zones";
         public static string userURL = "litecart/en/";
         #endregion
+
         #region Admin
         public static string credential = "admin";
         public static string trueLogin = "Logout";
@@ -49,8 +51,33 @@ namespace SeleniumFull
         public static Llocator GeozoneName = new Llocator(Locator.XPath, geozoneName);
         public static string geozoneSelect = "//*[@id='table-zones']//td[3]//option[@selected='selected']";
         public static Llocator GeozoneSelect = new Llocator(Locator.XPath, geozoneSelect);
+
+        public static string itemImagePath = @"%PUBLIC%\Pictures\Sample Pictures\Desert.jpg";
+        public static string filename = "Desert.jpg";
+
+        public static string menuCatalog = "//a[contains(@href,'doc=catalog')]";
+        public static Llocator MenuCatalog = new Llocator(Locator.XPath, menuCatalog);
+        public static string addNewProduct = "Add New Product";
+        public static Llocator AddNewProduct = new Llocator(Locator.LinkText, addNewProduct);
+        public static string itemEnabled = "//input[@name='status' and @value='1']";
+        public static Llocator ItemEnabled = new Llocator(Locator.XPath, itemEnabled);
+        public static string itemName = "//input[@name='name[en]']";
+        public static Llocator ItemName = new Llocator(Locator.XPath, itemName);
+        public static string itemCategories = "//input[@name='categories[]' and @type='checkbox']";
+        public static Llocator ItemCategories = new Llocator(Locator.XPath, itemCategories);
+        public static string itemDateFrom = "//input[@name='date_valid_from']";
+        public static Llocator ItemDateFrom = new Llocator(Locator.XPath, itemDateFrom);
+        public static string itemDateTo = "//input[@name='date_valid_to']";
+        public static Llocator ItemDateTo = new Llocator(Locator.XPath, itemDateTo);
+        public static string itemImageLocator = "new_images[]";
+        public static Llocator ItemImageLocator = new Llocator(Locator.Name, itemImageLocator);
+        public static string saveBtn = "//button[@name='save']";
+        public static Llocator SaveBtn = new Llocator(Locator.XPath, saveBtn);
+        public static string itemLinkInTable = "//td[3]/a[contains(@href,'&product_id=')]";
+        public static Llocator ItemLinkInTable = new Llocator(Locator.XPath, itemLinkInTable);
         #endregion
-        #region ItemsPage        
+
+        #region ItemsPage
         public static string tovar = "//li[starts-with(@class,'product')]//a[@class='link']";
         public static Llocator Tovar = new Llocator(Locator.XPath, tovar);
         public static string sticker = "//div[@class='image-wrapper']/div[starts-with(@class,'sticker')]";
@@ -63,15 +90,16 @@ namespace SeleniumFull
         public static string itemLinkOnStartPage = "//*[@id='box-campaigns']//li/a[@class='link']";
         public static Llocator ItemLinkOnStartPage = new Llocator(Locator.XPath, itemLinkOnStartPage);
         #endregion
+
         #region UserLiginLogout
         public static string noticeSuccess = "notice success";
 
         public static string logoutUser = "Logout";
         public static Llocator LogoutUser = new Llocator(Locator.LinkText, logoutUser);
         public static string loginUser = "//button[@name='login']";
-        public static Llocator LoginUser = new Llocator(Locator.XPath, loginUser);
-        
+        public static Llocator LoginUser = new Llocator(Locator.XPath, loginUser);        
         #endregion
+
         #region UserCreation
         public static string createNewUser = "New customers click here";
         public static Llocator CreateNewUser = new Llocator(Locator.LinkText, createNewUser);

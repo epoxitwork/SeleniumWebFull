@@ -21,7 +21,7 @@ namespace SeleniumFull
         public void SendKeysToField(Llocator locator, string value)
         {
             By typeByAndValue = GetTypeByLocator(locator);
-            app.driver.FindElement(typeByAndValue).Clear();
+            //app.driver.FindElement(typeByAndValue).Clear();
             app.driver.FindElement(typeByAndValue).SendKeys(value);
         }
         public void ClickButton(Llocator locator)
@@ -34,6 +34,16 @@ namespace SeleniumFull
         {
             By typeByAndValue = GetTypeByLocator(locator);
             return app.driver.FindElement(typeByAndValue).GetAttribute(value);
+        }
+        public List<string> GetAllTextFromElements(Llocator locator)
+        {
+            var allItems = app.Cmhelp.GetAllElements(locator);
+            List<string> itemsNames = new List<string>();
+            for (int j = 0; j < allItems.Count; j++)
+            {
+                itemsNames.Add(allItems[j].Text);
+            }
+            return itemsNames;
         }
         public static By GetTypeByLocator(Llocator locator)
         {

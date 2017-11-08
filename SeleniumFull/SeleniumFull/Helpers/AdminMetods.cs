@@ -4,6 +4,7 @@ using OpenQA.Selenium;
 using System.Collections.ObjectModel;
 using System.Collections.Generic;
 using System.IO;
+using OpenQA.Selenium.Interactions;
 
 
 namespace SeleniumFull
@@ -94,6 +95,44 @@ namespace SeleniumFull
                     linksCountryWithGeozones.Add(arrayFromSite[j].GetAttribute(DB.attrHref).Substring(22));
             }
             return linksCountryWithGeozones;
+        }
+        public void FillInItem(string productName)
+        {            
+            app.Cmhelp.ClickButton(DB.ItemEnabled);
+
+            app.Cmhelp.SendKeysToField(DB.ItemName, productName);
+
+            var allCategories = app.Cmhelp.GetAllElements(DB.ItemCategories);
+            for (int j = 1; j < allCategories.Count; j++)
+            {
+                allCategories[j].Click();
+            }
+
+            FillInFilePath();
+
+            FillInDate(DB.ItemDateFrom, "11082017");
+            FillInDate(DB.ItemDateTo, "11082018");
+        }
+
+        public void FillInFilePath()
+        {
+            string truepath = Environment.ExpandEnvironmentVariables(DB.itemImagePath);
+            try
+            {
+                app.Cmhelp.SendKeysToField(DB.ItemImageLocator, truepath);
+            }
+            catch (InvalidOperationException)
+            {
+                truepath = Path.Combine(Environment.CurrentDirectory, DB.filename);
+                app.Cmhelp.SendKeysToField(DB.ItemImageLocator, truepath);
+            }
+        }
+        public void FillInDate(Llocator locator, string date)
+        {
+            app.Cmhelp.ClickButton(locator);
+            app.Cmhelp.SendKeysToField(locator, Keys.ArrowLeft);
+            app.Cmhelp.SendKeysToField(locator, Keys.Left);
+            app.Cmhelp.SendKeysToField(locator, date);
         }
     }
 }
