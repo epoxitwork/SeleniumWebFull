@@ -123,8 +123,16 @@ namespace SeleniumFull
             }
             catch (InvalidOperationException)
             {
-                truepath = Path.Combine(Environment.CurrentDirectory, DB.filename);
+                truepath = Environment.CurrentDirectory;
+                string[] words = truepath.Split(new Char[] { '\\' });
+                truepath = "";
+                for (int j = 0; j < words.Length-2; j++)
+                {
+                    truepath = truepath + words[j] + "\\";
+                }
+                truepath = Path.Combine(truepath, DB.filename);
                 app.Cmhelp.SendKeysToField(DB.ItemImageLocator, truepath);
+
             }
         }
         public void FillInDate(Llocator locator, string date)
