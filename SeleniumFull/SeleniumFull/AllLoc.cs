@@ -89,6 +89,14 @@ namespace SeleniumFull
         public static Llocator ItemNameOnItemPage = new Llocator(Locator.XPath, itemNameOnItemPage);
         public static string itemLinkOnStartPage = "//*[@id='box-campaigns']//li/a[@class='link']";
         public static Llocator ItemLinkOnStartPage = new Llocator(Locator.XPath, itemLinkOnStartPage);
+        public static string mainItemLocator = "//*[@id='box-campaigns']";
+        public static Llocator MainItemLocator = new Llocator(Locator.XPath, mainItemLocator);
+        public static string mainItemLocator2 = "//*[@id='box-product']";
+        public static Llocator MainItemLocator2 = new Llocator(Locator.XPath, mainItemLocator2);
+        public static string itemRegularPrice = ".//s[@class='regular-price']";
+        public static Llocator ItemRegularPrice = new Llocator(Locator.XPath, itemRegularPrice);
+        public static string itemCampaignPrice = ".//*[@class='campaign-price']";
+        public static Llocator ItemCampaignPrice = new Llocator(Locator.XPath, itemCampaignPrice);
         #endregion
 
         #region UserLiginLogout

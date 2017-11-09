@@ -25,56 +25,77 @@ namespace SeleniumFull
         public void Task_10_CheckTheRightPage()
         {
             InitCh();
-            try { Actions(driverCh); } 
+            try 
+            { 
+                CheckingText(driverCh); 
+            } 
             finally { Closure(driverCh);}
-            InitIE();
-            try { Actions(driverIE); }
-            finally { Closure(driverIE); }            
             InitFF();
-            try { Actions(driverFF); }
+            try 
+            { 
+                CheckingText(driverFF); 
+            }
             finally { Closure(driverFF); }
+            InitIE();
+            try
+            {
+                CheckingText(driverIE);
+            }
+            finally { Closure(driverIE); }
         }
         #region Metods
-        private void Actions(IWebDriver driver)
+        private void CheckingText(IWebDriver driver)
         {
             driver.Navigate().GoToUrl(DB.baseURL + DB.userURL);
             Thread.Sleep(1000);
-            var arrayNamesMainPage = driver.FindElements(By.XPath(DB.itemNameOnStartPage));
-            var arrayLinksMainPage = driver.FindElements(By.XPath(DB.itemLinkOnStartPage));
-            var textFromItems = GetTextFromItems(arrayNamesMainPage);
-            var allLinks = GetAllLinksFromArray(arrayLinksMainPage);
-            for (int j = 0; j < allLinks.Count; j++)
-            {
-                driver.Navigate().GoToUrl(DB.baseURL + allLinks[j]);
-                Assert.IsTrue(ComparingNames(driver, textFromItems[j]));
-            }
-        }
+            string NameMainPage = driver.FindElement(By.XPath(DB.itemNameOnStartPage)).Text;
+            string firstItemLink = driver.FindElement(By.XPath(DB.itemLinkOnStartPage)).GetAttribute(DB.attrHref).Substring(22);
+            var itemBase = driver.FindElement(By.XPath(DB.mainItemLocator));
+            string RegularCostMainPage = itemBase.FindElement(By.XPath(DB.itemRegularPrice)).Text;
+            string CmpCostMainPage = itemBase.FindElement(By.XPath(DB.itemCampaignPrice)).Text;
 
-        public void WaitForLoading(IWebDriver driver, string text)
-        {
-            WebDriverWait wait = new WebDriverWait(driver, TimeSpan.FromSeconds(10));
-            IWebElement element = wait.Until(ExpectedConditions.ElementToBeClickable(By.XPath(DB.itemNameOnStartPage)));
+            CompareTextSize(itemBase);
+            CompareColor(itemBase);
+            CompareStyle(itemBase);
+
+            driver.Navigate().GoToUrl(DB.baseURL + firstItemLink);
+            Thread.Sleep(1000);
+            var itemBase2 = driver.FindElement(By.XPath(DB.mainItemLocator2));
+            Assert.IsTrue(ComparingNames(driver, NameMainPage));
+
+            CompareTextSize(itemBase2);
+            CompareColor(itemBase2);
+            CompareStyle(itemBase2);
+
+            CompareCost(RegularCostMainPage, CmpCostMainPage, itemBase2);
         }
-        public void WaitForLoading(IWebDriver driver, Llocator locator)
+        private static void CompareCost(string RegularCostMainPage, string CmpCostMainPage, IWebElement itemBase2)
         {
-            while (!IsElementPresent(driver, locator))
-            {
-                Thread.Sleep(50);
-            }
+            var one = itemBase2.FindElement(By.XPath(DB.itemCampaignPrice)).Text;
+            var two = itemBase2.FindElement(By.XPath(DB.itemRegularPrice)).Text;
+            Assert.AreEqual(one, CmpCostMainPage);
+            Assert.AreEqual(two, RegularCostMainPage);
         }
-        public bool IsElementPresent(IWebDriver driver, Llocator locator)
+        private void CompareStyle(IWebElement itemBase)
         {
-            try
-            {
-                By typeByAndValue = GetTypeByLocator(locator);
-                driver.FindElement(typeByAndValue);
-                return true;
-            }
-            catch (Exception)
-            {
-                return false;
-            }
+            var one = GetCss(itemBase, DB.ItemRegularPrice, "text-decoration");
+            var two = GetCss(itemBase, DB.ItemCampaignPrice, "font-weight");
+            Assert.IsTrue(one.Contains("line-through"));
+            Assert.Less(400, Convert.ToDouble(two));//если больше 400, то bold
         }
+        private void CompareColor(IWebElement element)
+        {
+            var one = GetColor(GetCss(element, DB.ItemRegularPrice, "color"));
+            var two = GetColor(GetCss(element, DB.ItemCampaignPrice, "color"));
+            Assert.AreEqual(one, "gray");
+            Assert.AreEqual(two, "red");
+        }
+        private void CompareTextSize(IWebElement element)
+        {
+            double regularSize = GetTextSize(GetCss(element, DB.ItemRegularPrice, "font-size"));
+            double campaignSize = GetTextSize(GetCss(element, DB.ItemCampaignPrice, "font-size"));
+            Assert.Less(regularSize, campaignSize);
+        }        
         public static By GetTypeByLocator(Llocator locator)
         {
             By typeByAndValue;
@@ -99,25 +120,52 @@ namespace SeleniumFull
                     throw new Exception(string.Format("Locator type #{0} not supported", locator.Type));
             }
             return typeByAndValue;
-        }
-        public List<string> GetTextFromItems(ReadOnlyCollection<IWebElement> arrayFromSite)
+        }        
+        public string GetColor(string css)
         {
-            List<string> listFromSite = new List<string>();
-            for (int j = 0; j < arrayFromSite.Count; j++)
+            string[] nums = css.Split(new Char[] { ',', ')', '(', ' ' });
+            string[] colorsRGB = new string[3];
+            int j = 0;
+            int lenght =0;
+            if (nums[0]=="rgb")
+                lenght = nums.Length-1;
+            else lenght = nums.Length-3;
+            for (int i = 1; i < lenght; i++ )
             {
-                if (arrayFromSite[j].Text != "")
-                    listFromSite.Add(arrayFromSite[j].Text);
+                string ggg = nums[i];
+                if (nums[i] != "")
+                {
+                    colorsRGB[j] = nums[i];
+                    j++;
+                }
             }
-            return listFromSite;
+            if (colorsRGB[0] == colorsRGB[1] && colorsRGB[0] == colorsRGB[2])
+                return "gray";
+            else if (colorsRGB[1] == "0" && colorsRGB[2] == "0")
+                return "red";
+            return "ColorIsUnknown";
         }
-        public List<string> GetAllLinksFromArray(ReadOnlyCollection<IWebElement> arrayFromSite)
+        public double GetTextSize(string size)
         {
-            List<string> links = new List<string>();
-            for (int j = 0; j < arrayFromSite.Count; j++)
+            double sizee = 0;
+            double sizeAfterPoint = 0;
+            string[] text = size.Split(new Char[] { '.'});
+            if (text.Length > 1)
             {
-                links.Add(arrayFromSite[j].GetAttribute(DB.attrHref).Substring(22));
+                sizee = Convert.ToDouble(text[0]);
+                sizeAfterPoint = Convert.ToDouble(text[1].Substring(0, text[1].Length-2));
+                sizee = sizee + sizeAfterPoint / 10;
             }
-            return links;
+            else
+                sizee = Convert.ToDouble(text[0].Substring(0, text[0].Length - 2));
+
+            return sizee;
+        }
+        public string GetCss(IWebElement element, Llocator locator, string css)
+        {
+            By typeByAndValue = GetTypeByLocator(locator);
+            var cssValue = element.FindElement(typeByAndValue).GetCssValue(css);
+            return cssValue;
         }
         public bool ComparingNames(IWebDriver driver, string textFromItems)
         {
