@@ -22,11 +22,14 @@ namespace SeleniumFull
                 itemsInCart = AddItemToCart(itemsInCart);
                 app.UserMetods.OpenUserPage();
             }
-
+            Assert.AreEqual(Convert.ToInt16(itemsInCart), 3);
             app.Cmhelp.ClickButton(DB.OpenCart);
             itemsInCart = app.Cmhelp.GetTextFromElements(DB.Empty);
             while (app.Cmhelp.GetTextFromElements(DB.Empty) != "There are no items in your cart.")
                 DeletingItems();
+            app.UserMetods.OpenUserPage();
+            app.Cmhelp.WaitForLoading(DB.QuantityInCart);
+            Assert.AreEqual(Convert.ToInt16(app.Cmhelp.GetTextFromElements(DB.QuantityInCart)), 0);
         }
 
         private void DeletingItems()
