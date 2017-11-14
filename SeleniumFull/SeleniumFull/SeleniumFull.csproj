@@ -67,6 +67,7 @@
     <Compile Include="AppManager.cs" />
     <Compile Include="Bases\AdminBase.cs" />
     <Compile Include="Bases\UserBase.cs" />
+    <Compile Include="Tests\Task_13_Carting.cs" />
     <Compile Include="Tests\Task_12_AddItemInCatalog.cs" />
     <Compile Include="UserData.cs" />
     <Compile Include="Helpers\CommHelper.cs" />

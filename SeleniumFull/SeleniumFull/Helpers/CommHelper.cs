@@ -37,13 +37,21 @@ namespace SeleniumFull
         }
         public List<string> GetAllTextFromElements(Llocator locator)
         {
-            var allItems = app.Cmhelp.GetAllElements(locator);
+            var allItems = GetAllElements(locator);
             List<string> itemsNames = new List<string>();
             for (int j = 0; j < allItems.Count; j++)
             {
                 itemsNames.Add(allItems[j].Text);
             }
             return itemsNames;
+        }
+        public string GetTextFromElements(Llocator locator)
+        {
+            By typeByAndValue = GetTypeByLocator(locator);
+            string text = "";
+            try { text = app.driver.FindElement(typeByAndValue).Text; }
+            catch (NoSuchElementException) { }
+            return text;
         }
         public static By GetTypeByLocator(Llocator locator)
         {
@@ -154,6 +162,22 @@ namespace SeleniumFull
             Random rand = new Random();
             int output = rand.Next(min, max);
             return output;
+        }
+        public bool IsElementChanged(Llocator locator, string oldValue)
+        {
+            By typeByAndValue = GetTypeByLocator(locator);
+            string newValue = app.driver.FindElement(typeByAndValue).Text;
+            if (newValue != oldValue)
+                return true;
+            else return false;            
+        }
+
+        internal void SelectElement(Llocator locator1, Llocator locator2)
+        {
+            By typeByAndValue = GetTypeByLocator(locator1);
+            var element = driver.FindElement(typeByAndValue);
+            var allitems = GetAllTextFromElements(locator2);
+            new SelectElement(element).SelectByText(allitems[1]);
         }
     }
 }

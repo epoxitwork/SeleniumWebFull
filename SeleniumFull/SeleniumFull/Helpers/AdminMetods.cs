@@ -132,7 +132,6 @@ namespace SeleniumFull
                 }
                 truepath = Path.Combine(truepath, DB.filename);
                 app.Cmhelp.SendKeysToField(DB.ItemImageLocator, truepath);
-
             }
         }
         public void FillInDate(Llocator locator, string date)

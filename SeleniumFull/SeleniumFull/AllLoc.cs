@@ -80,6 +80,24 @@ namespace SeleniumFull
         #region ItemsPage
         public static string tovar = "//li[starts-with(@class,'product')]//a[@class='link']";
         public static Llocator Tovar = new Llocator(Locator.XPath, tovar);
+        public static string addToCart = "//button[@value='Add To Cart']";
+        public static Llocator AddToCart = new Llocator(Locator.XPath, addToCart);
+        public static string sizeItem = "//table//td[@class='options']/select";
+        public static Llocator SizeItem = new Llocator(Locator.XPath, sizeItem);
+        public static string sizes = ".//option";
+        public static Llocator Sizes = new Llocator(Locator.XPath, sizes);
+        public static string removeBtn = "//button[@name='remove_cart_item']";
+        public static Llocator RemoveBtn = new Llocator(Locator.XPath, removeBtn);
+        public static string empty = "//*[@id='checkout-cart-wrapper']/p[1]/em";
+        public static Llocator Empty = new Llocator(Locator.XPath, empty);
+        public static string itemsNamesInCart = "//*[@id='order_confirmation-wrapper']//tr/td[@class='item']";
+        public static Llocator ItemsNamesInCart = new Llocator(Locator.XPath, itemsNamesInCart);
+        public static string itemsCountInCart = "//*[@id='order_confirmation-wrapper']//tr/td[@class='item']";
+        public static Llocator ItemsCountInCart = new Llocator(Locator.XPath, itemsCountInCart);
+        public static string openCart = @"Checkout »";
+        public static Llocator OpenCart = new Llocator(Locator.LinkText, openCart);
+        public static string quantityInCart = "//div[@id='cart']/a[@class='content']/span[@class='quantity']";
+        public static Llocator QuantityInCart = new Llocator(Locator.XPath, quantityInCart);
         public static string sticker = "//div[@class='image-wrapper']/div[starts-with(@class,'sticker')]";
         public static Llocator Sticker = new Llocator(Locator.XPath, sticker);
         public static string itemNameOnStartPage2 = "//*div[@class='box']//div[@class='name']";
