@@ -16,9 +16,7 @@ namespace SeleniumFull
         [Test]
         public void Task_14_NewLinkInNewWindow()
         {            
-            app.Cmhelp.OpenTargetPage(DB.countryUrl);
-            Edit();
-            /*
+            app.Cmhelp.OpenTargetPage(DB.countryUrl);            
             if (app.Cmhelp.SimpleRnd(1, 2) == 1)
             {
                 Edit();
@@ -26,7 +24,7 @@ namespace SeleniumFull
             else            
             {
                 New();
-            }*/
+            }
             Checking();
         }
 
