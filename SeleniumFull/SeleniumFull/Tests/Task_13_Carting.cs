@@ -44,7 +44,7 @@ namespace SeleniumFull
                 {
                     try 
                     {
-                        app.Cmhelp.Wait(DB.RemoveBtn); 
+                        app.Cmhelp.WaitElementToBeClickable(DB.RemoveBtn); 
                         app.Cmhelp.ClickButton(DB.RemoveBtn); 
                     }
                     catch (Exception) { }

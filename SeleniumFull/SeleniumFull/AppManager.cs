@@ -1,5 +1,6 @@
 ﻿using OpenQA.Selenium;
 using OpenQA.Selenium.Chrome;
+using OpenQA.Selenium.Remote;
 using System;
 using System.Collections.Generic;
 using System.Diagnostics;
@@ -71,7 +72,8 @@ namespace SeleniumFull
                 driver.Quit();
                 Process[] all = Process.GetProcesses();
                 foreach (System.Diagnostics.Process one in all)
-                    if (one.ProcessName.Contains("chromedriver") || one.ProcessName.Contains("conhost")) one.Kill();
+                    if (one.ProcessName.Contains("chromedriver") || one.ProcessName.Contains("conhost"))
+                        one.Kill();
             }
             catch (Exception)
             {

@@ -180,7 +180,7 @@ namespace SeleniumFull
             new SelectElement(element).SelectByText(allitems[1]);
         }
 
-        internal void Wait(Llocator locator)
+        internal void WaitElementToBeClickable(Llocator locator)
         {
             By typeByAndValue = GetTypeByLocator(locator);
             WebDriverWait wait = new WebDriverWait(driver, TimeSpan.FromSeconds(10));

@@ -75,6 +75,12 @@ namespace SeleniumFull
         public static Llocator SaveBtn = new Llocator(Locator.XPath, saveBtn);
         public static string itemLinkInTable = "//td[3]/a[contains(@href,'&product_id=')]";
         public static Llocator ItemLinkInTable = new Llocator(Locator.XPath, itemLinkInTable);
+        public static string editPencil = "//i[@class='fa fa-pencil']";
+        public static Llocator EditPencil = new Llocator(Locator.XPath, editPencil);
+        public static string newCountry = "//*[@id='content']/div/a";
+        public static Llocator NewCountry = new Llocator(Locator.XPath, newCountry);
+        public static string externalLink = "//i[@class='fa fa-external-link']/..";
+        public static Llocator ExternalLink = new Llocator(Locator.XPath, externalLink);
         #endregion
 
         #region ItemsPage
@@ -117,7 +123,7 @@ namespace SeleniumFull
         public static Llocator ItemCampaignPrice = new Llocator(Locator.XPath, itemCampaignPrice);
         #endregion
 
-        #region UserLiginLogout
+        #region UserLoginLogout
         public static string noticeSuccess = "notice success";
 
         public static string logoutUser = "Logout";
