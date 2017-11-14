@@ -44,7 +44,7 @@ namespace SeleniumFull
                 {
                     try 
                     {
-                        Thread.Sleep(100);
+                        app.Cmhelp.Wait(DB.RemoveBtn); 
                         app.Cmhelp.ClickButton(DB.RemoveBtn); 
                     }
                     catch (Exception) { }

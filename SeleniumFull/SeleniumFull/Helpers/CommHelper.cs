@@ -179,5 +179,12 @@ namespace SeleniumFull
             var allitems = GetAllTextFromElements(locator2);
             new SelectElement(element).SelectByText(allitems[1]);
         }
+
+        internal void Wait(Llocator locator)
+        {
+            By typeByAndValue = GetTypeByLocator(locator);
+            WebDriverWait wait = new WebDriverWait(driver, TimeSpan.FromSeconds(10));
+            wait.Until(ExpectedConditions.ElementToBeClickable(typeByAndValue));
+        }
     }
 }
