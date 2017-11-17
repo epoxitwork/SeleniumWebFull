@@ -71,7 +71,7 @@ namespace SeleniumFull
             {
                 driver.Quit();
                 Process[] all = Process.GetProcesses();
-                foreach (System.Diagnostics.Process one in all)
+                foreach (Process one in all)
                     if (one.ProcessName.Contains("chromedriver") || one.ProcessName.Contains("conhost"))
                         one.Kill();
             }

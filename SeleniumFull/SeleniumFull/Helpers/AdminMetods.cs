@@ -56,7 +56,7 @@ namespace SeleniumFull
         }
         public void Checking(IWebElement allElements1lvl, List<string> h1NoExist, out string btnText, out string h1, string lvl)
         {
-            string result = "";
+            string result;// = "";
             btnText = allElements1lvl.Text;
             allElements1lvl.Click();
             h1 = driver.FindElement(By.XPath(DB.h1)).Text;
