@@ -70,6 +70,7 @@
     <Compile Include="Tests\Task_14_NewLinkInNewWindow.cs" />
     <Compile Include="Tests\Task_13_Carting.cs" />
     <Compile Include="Tests\Task_12_AddItemInCatalog.cs" />
+    <Compile Include="Tests\Task_15_RemoteSelenium.cs" />
     <Compile Include="UserData.cs" />
     <Compile Include="Helpers\CommHelper.cs" />
     <Compile Include="Helpers\UserMetods.cs" />

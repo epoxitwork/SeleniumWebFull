@@ -25,15 +25,15 @@ namespace SeleniumFull
         public void Task_10_CheckTheRightPage()
         {
             InitCh();
-            try 
-            { 
-                CheckingText(driverCh); 
-            } 
-            finally { Closure(driverCh);}
+            try
+            {
+                CheckingText(driverCh);
+            }
+            finally { Closure(driverCh); }
             InitFF();
-            try 
-            { 
-                CheckingText(driverFF); 
+            try
+            {
+                CheckingText(driverFF);
             }
             finally { Closure(driverFF); }
             InitIE();
@@ -95,7 +95,7 @@ namespace SeleniumFull
             double regularSize = GetTextSize(GetCss(element, DB.ItemRegularPrice, "font-size"));
             double campaignSize = GetTextSize(GetCss(element, DB.ItemCampaignPrice, "font-size"));
             Assert.Less(regularSize, campaignSize);
-        }        
+        }
         public static By GetTypeByLocator(Llocator locator)
         {
             By typeByAndValue;
@@ -120,17 +120,17 @@ namespace SeleniumFull
                     throw new Exception(string.Format("Locator type #{0} not supported", locator.Type));
             }
             return typeByAndValue;
-        }        
+        }
         public string GetColor(string css)
         {
             string[] nums = css.Split(new Char[] { ',', ')', '(', ' ' });
             string[] colorsRGB = new string[3];
             int j = 0;
-            int lenght =0;
-            if (nums[0]=="rgb")
-                lenght = nums.Length-1;
-            else lenght = nums.Length-3;
-            for (int i = 1; i < lenght; i++ )
+            int lenght = 0;
+            if (nums[0] == "rgb")
+                lenght = nums.Length - 1;
+            else lenght = nums.Length - 3;
+            for (int i = 1; i < lenght; i++)
             {
                 string ggg = nums[i];
                 if (nums[i] != "")
@@ -149,11 +149,11 @@ namespace SeleniumFull
         {
             double sizee = 0;
             double sizeAfterPoint = 0;
-            string[] text = size.Split(new Char[] { '.'});
+            string[] text = size.Split(new Char[] { '.' });
             if (text.Length > 1)
             {
                 sizee = Convert.ToDouble(text[0]);
-                sizeAfterPoint = Convert.ToDouble(text[1].Substring(0, text[1].Length-2));
+                sizeAfterPoint = Convert.ToDouble(text[1].Substring(0, text[1].Length - 2));
                 sizee = sizee + sizeAfterPoint / 10;
             }
             else
@@ -193,7 +193,7 @@ namespace SeleniumFull
         private void InitIE()
         {
             InternetExplorerOptions optionsIE = new InternetExplorerOptions();
-            optionsIE.IgnoreZoomLevel = true;            
+            optionsIE.IgnoreZoomLevel = true;
             optionsIE.RequireWindowFocus = true;
             driverIE = new InternetExplorerDriver(optionsIE);
             Settings(driverIE);
@@ -212,7 +212,7 @@ namespace SeleniumFull
             try
             {
                 driver.Close();
-                driver.Quit();                
+                driver.Quit();
             }
             catch (Exception)
             {
