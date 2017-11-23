@@ -37,7 +37,7 @@
   <ItemGroup>
     <Reference Include="AutomatedTester.BrowserMob, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\..\AutomatedTester.BrowserMob-master\AutomatedTester.BrowserMob\bin\Debug\AutomatedTester.BrowserMob.dll</HintPath>
+      <HintPath>..\AutomatedTester.BrowserMob-master\AutomatedTester.BrowserMob\bin\Debug\AutomatedTester.BrowserMob.dll</HintPath>
     </Reference>
     <Reference Include="Newtonsoft.Json.Net20">
       <HintPath>..\packages\AutomatedTester.BrowserMob\Newtonsoft.Json.Net20.dll</HintPath>

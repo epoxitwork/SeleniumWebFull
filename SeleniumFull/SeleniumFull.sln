@@ -3,7 +3,7 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 2012
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SeleniumFull", "SeleniumFull\SeleniumFull.csproj", "{BB6240C1-35BC-4E5B-A229-F86378F77073}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AutomatedTester.BrowserMob", "..\AutomatedTester.BrowserMob-master\AutomatedTester.BrowserMob\AutomatedTester.BrowserMob.csproj", "{A8C349FD-5720-40C2-9A63-F4A57F0FA5DB}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AutomatedTester.BrowserMob", "AutomatedTester.BrowserMob-master\AutomatedTester.BrowserMob\AutomatedTester.BrowserMob.csproj", "{A8C349FD-5720-40C2-9A63-F4A57F0FA5DB}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
