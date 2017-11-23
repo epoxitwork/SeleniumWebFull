@@ -35,6 +35,12 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="AutomatedTester.BrowserMob">
+      <HintPath>..\packages\AutomatedTester.BrowserMob\AutomatedTester.BrowserMob.dll</HintPath>
+    </Reference>
+    <Reference Include="Newtonsoft.Json.Net20">
+      <HintPath>..\packages\AutomatedTester.BrowserMob\Newtonsoft.Json.Net20.dll</HintPath>
+    </Reference>
     <Reference Include="nunit.framework, Version=2.6.4.14350, Culture=neutral, PublicKeyToken=96d09a1eb7f44a77, processorArchitecture=MSIL">
       <HintPath>..\packages\NUnit.2.6.4\lib\nunit.framework.dll</HintPath>
       <Private>True</Private>
@@ -67,6 +73,7 @@
     <Compile Include="AppManager.cs" />
     <Compile Include="Bases\AdminBase.cs" />
     <Compile Include="Bases\UserBase.cs" />
+    <Compile Include="Tests\Task_18_Proxy.cs" />
     <Compile Include="Tests\Task_17_Logging.cs" />
     <Compile Include="Tests\Task_14_NewLinkInNewWindow.cs" />
     <Compile Include="Tests\Task_13_Carting.cs" />
