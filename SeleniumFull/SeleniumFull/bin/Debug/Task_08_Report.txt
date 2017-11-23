@@ -1,0 +1,11 @@
+Purple Duck: Stickers == 1;
+Green Duck: Stickers == 1;
+Red Duck: Stickers == 1;
+Yellow Duck: Stickers == 1;
+Blue Duck: Stickers == 1;
+Yellow Duck: Stickers == 1;
+Yellow Duck: Stickers == 1;
+Green Duck: Stickers == 1;
+Red Duck: Stickers == 1;
+Blue Duck: Stickers == 1;
+Purple Duck: Stickers == 1;

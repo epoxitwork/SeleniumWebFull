@@ -1,0 +1,14 @@
+c:\users\temp1\documents\visual studio 2012\Projects\SeleniumFull\SeleniumFull\obj\Debug\SeleniumFull.csprojResolveAssemblyReference.cache
+c:\users\temp1\documents\visual studio 2012\Projects\SeleniumFull\SeleniumFull\bin\Debug\SeleniumFull.dll
+c:\users\temp1\documents\visual studio 2012\Projects\SeleniumFull\SeleniumFull\bin\Debug\SeleniumFull.pdb
+c:\users\temp1\documents\visual studio 2012\Projects\SeleniumFull\SeleniumFull\bin\Debug\nunit.framework.dll
+c:\users\temp1\documents\visual studio 2012\Projects\SeleniumFull\SeleniumFull\bin\Debug\WebDriver.dll
+c:\users\temp1\documents\visual studio 2012\Projects\SeleniumFull\SeleniumFull\bin\Debug\WebDriver.Support.dll
+c:\users\temp1\documents\visual studio 2012\Projects\SeleniumFull\SeleniumFull\bin\Debug\nunit.framework.xml
+c:\users\temp1\documents\visual studio 2012\Projects\SeleniumFull\SeleniumFull\bin\Debug\WebDriver.xml
+c:\users\temp1\documents\visual studio 2012\Projects\SeleniumFull\SeleniumFull\bin\Debug\WebDriver.Support.xml
+c:\users\temp1\documents\visual studio 2012\Projects\SeleniumFull\SeleniumFull\obj\Debug\SeleniumFull.dll
+c:\users\temp1\documents\visual studio 2012\Projects\SeleniumFull\SeleniumFull\obj\Debug\SeleniumFull.pdb
+C:\Users\temp1\Documents\Visual Studio 2012\Projects\SeleniumFull\SeleniumFull\bin\Debug\AutomatedTester.BrowserMob.dll
+C:\Users\temp1\Documents\Visual Studio 2012\Projects\SeleniumFull\SeleniumFull\bin\Debug\Newtonsoft.Json.Net20.dll
+C:\Users\temp1\Documents\Visual Studio 2012\Projects\SeleniumFull\SeleniumFull\bin\Debug\AutomatedTester.BrowserMob.pdb

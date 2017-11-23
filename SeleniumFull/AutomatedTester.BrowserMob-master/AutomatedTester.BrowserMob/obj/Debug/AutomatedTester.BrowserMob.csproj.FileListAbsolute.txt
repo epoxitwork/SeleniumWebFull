@@ -1,0 +1,6 @@
+C:\Users\temp1\Documents\Visual Studio 2012\Projects\AutomatedTester.BrowserMob-master\AutomatedTester.BrowserMob\bin\Debug\AutomatedTester.BrowserMob.dll
+C:\Users\temp1\Documents\Visual Studio 2012\Projects\AutomatedTester.BrowserMob-master\AutomatedTester.BrowserMob\bin\Debug\AutomatedTester.BrowserMob.pdb
+C:\Users\temp1\Documents\Visual Studio 2012\Projects\AutomatedTester.BrowserMob-master\AutomatedTester.BrowserMob\bin\Debug\Newtonsoft.Json.Net20.dll
+C:\Users\temp1\Documents\Visual Studio 2012\Projects\AutomatedTester.BrowserMob-master\AutomatedTester.BrowserMob\obj\Debug\AutomatedTester.BrowserMob.csprojResolveAssemblyReference.cache
+C:\Users\temp1\Documents\Visual Studio 2012\Projects\AutomatedTester.BrowserMob-master\AutomatedTester.BrowserMob\obj\Debug\AutomatedTester.BrowserMob.dll
+C:\Users\temp1\Documents\Visual Studio 2012\Projects\AutomatedTester.BrowserMob-master\AutomatedTester.BrowserMob\obj\Debug\AutomatedTester.BrowserMob.pdb
