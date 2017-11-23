@@ -81,6 +81,11 @@ namespace SeleniumFull
         public static Llocator NewCountry = new Llocator(Locator.XPath, newCountry);
         public static string externalLink = "//i[@class='fa fa-external-link']/..";
         public static Llocator ExternalLink = new Llocator(Locator.XPath, externalLink);
+        public static string allSubCategory = "//table[@class='dataTable']//a[contains(@href,'catalog&category')]";
+        public static Llocator AllSubCategory = new Llocator(Locator.XPath, allSubCategory);
+        public static string allGoods = "//table[@class='dataTable']//td[3]/a[contains(@href,'&product_id=')]";
+        public static Llocator AllGoods = new Llocator(Locator.XPath, allGoods);
+
         #endregion
 
         #region ItemsPage

@@ -52,10 +52,10 @@ namespace SeleniumFull
         }
         private IWebDriver InitFF()
         {
-            DesiredCapabilities capability = DesiredCapabilities.Firefox();
-            capability.SetCapability(browserName, "firefox");
+            //DesiredCapabilities capability = DesiredCapabilities.Firefox();
+            //capability.SetCapability(browserName, "firefox");
             FirefoxOptions optFF = new FirefoxOptions();
-            //optFF.AddAdditionalCapability(browserName, "firefox", true);
+            optFF.AddAdditionalCapability(browserName, "firefox", true);
             optFF.BrowserExecutableLocation = ffPath;
             optFF.UseLegacyImplementation = false;
             optFF.ToCapabilities();
@@ -65,13 +65,13 @@ namespace SeleniumFull
         }
         private IWebDriver InitIE()
         {
-            DesiredCapabilities capability = DesiredCapabilities.Firefox();
-            capability.SetCapability(browserName, "internet explorer");
+            //DesiredCapabilities capability = DesiredCapabilities.Firefox();
+            //capability.SetCapability(browserName, "internet explorer");
             InternetExplorerOptions optIE = new InternetExplorerOptions();
             optIE.IgnoreZoomLevel = true;
             optIE.RequireWindowFocus = true;
             optIE.ToCapabilities();
-            //optIE.AddAdditionalCapability(browserName, "internet explorer", true);
+            optIE.AddAdditionalCapability(browserName, "internet explorer", true);
             IWebDriver driverIE = new RemoteWebDriver(new Uri(urlHUB), optIE);
             Settings(driverIE);
             return driverIE;

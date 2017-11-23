@@ -5,6 +5,11 @@ using System.Collections.ObjectModel;
 using System.Collections.Generic;
 using System.IO;
 using OpenQA.Selenium.Interactions;
+using NUnit.Framework;
+using System.Drawing;
+using System.Linq;
+
+using System.Threading.Tasks;
 
 
 namespace SeleniumFull
@@ -140,6 +145,20 @@ namespace SeleniumFull
             app.Cmhelp.SendKeysToField(locator, Keys.ArrowLeft);
             app.Cmhelp.SendKeysToField(locator, Keys.Left);
             app.Cmhelp.SendKeysToField(locator, date);
+        }
+        public void OpenAllCategoriesInCatalog()
+        {
+            var allSubcategory = app.Cmhelp.GetAllElements(DB.AllSubCategory);
+            while (allSubcategory.Count < 3)
+            {
+                var asd = allSubcategory.Last();
+                asd.Click();
+                Thread.Sleep(500);
+                allSubcategory = app.Cmhelp.GetAllElements(DB.AllSubCategory);
+                asd = allSubcategory.Last();  
+                asd.Click();
+                allSubcategory = app.Cmhelp.GetAllElements(DB.AllSubCategory);
+            }
         }
     }
 }

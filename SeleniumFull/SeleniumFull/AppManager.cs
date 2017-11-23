@@ -27,7 +27,8 @@ namespace SeleniumFull
             driver = new ChromeDriver();
             driver.Manage().Window.Size = new Size(1180, 1000);
             var timeout = new TimeSpan(0, 2, 0);
-            driver.Manage().Window.Position = new Point(0, 30);
+            //driver.Manage().Window.Position = new Point(0, 30);
+            driver.Manage().Window.Position = new Point(0, 40);
             driver.Manage().Timeouts().ImplicitWait = timeout;
             driver.Manage().Timeouts().PageLoad = timeout;
             driver.Manage().Timeouts().ImplicitWait = new TimeSpan(10);
