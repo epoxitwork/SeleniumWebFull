@@ -74,6 +74,10 @@
     <Compile Include="AppManager.cs" />
     <Compile Include="Bases\AdminBase.cs" />
     <Compile Include="Bases\UserBase.cs" />
+    <Compile Include="Helpers\!CartPage.cs" />
+    <Compile Include="Helpers\!ItemPage.cs" />
+    <Compile Include="Helpers\!MainPage.cs" />
+    <Compile Include="Tests\Task_19_Carting.cs" />
     <Compile Include="Tests\Task_18_Proxy.cs" />
     <Compile Include="Tests\Task_17_Logging.cs" />
     <Compile Include="Tests\Task_14_NewLinkInNewWindow.cs" />

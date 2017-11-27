@@ -12,7 +12,7 @@ namespace SeleniumFull
         [Test]
         public void Task_18_Proxy()
         {
-            Server server = new Server(@"c:\Users\temp1\Documents\Visual Studio 2012\Projects\SeleniumFull\packages\browsermob-proxy-2.1.4\bin\browsermob-proxy.bat");
+            Server server = new Server(@"c:\Users\temp1\Documents\Visual Studio 2012\Projects\SeleniumFull\packages\browsermob-proxy-2.1.4\bin\browsermob-proxy.bat", 8888);
             server.Start();
 
             var client = server.CreateProxy();

@@ -24,8 +24,8 @@ namespace SeleniumFull
             }
             Assert.AreEqual(Convert.ToInt16(itemsInCart), 3);
             app.Cmhelp.ClickButton(DB.OpenCart);
-            itemsInCart = app.Cmhelp.GetTextFromElements(DB.Empty);
-            while (app.Cmhelp.GetTextFromElements(DB.Empty) != "There are no items in your cart.")
+            itemsInCart = app.Cmhelp.GetTextFromElements(DB.EmptyCart);
+            while (app.Cmhelp.GetTextFromElements(DB.EmptyCart) != "There are no items in your cart.")
                 DeletingItems();
             app.UserMetods.OpenUserPage();
             app.Cmhelp.WaitForLoading(DB.QuantityInCart);
@@ -34,7 +34,7 @@ namespace SeleniumFull
 
         private void DeletingItems()
         {
-            string result = app.Cmhelp.GetTextFromElements(DB.Empty);            
+            string result = app.Cmhelp.GetTextFromElements(DB.EmptyCart);            
             if (result == "")
             {
                 int count = 0;

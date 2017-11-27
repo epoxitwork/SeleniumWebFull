@@ -20,6 +20,9 @@ namespace SeleniumFull
         public CommHelper cmhelp;
         public AdminMetods adminmetods;
         public UserMetods usermetods;
+        public CartPage cartPage;
+        public ItemPage itemPage;
+        public MainPage mainPage;
 
         #endregion
         public AppManager()
@@ -35,6 +38,9 @@ namespace SeleniumFull
             cmhelp = new CommHelper(this);
             adminmetods = new AdminMetods(this);
             usermetods = new UserMetods(this);
+            cartPage = new CartPage(this);
+            itemPage = new ItemPage(this);
+            mainPage = new MainPage(this);
         }
         #region Property
         public IWebDriver Driver
@@ -42,6 +48,27 @@ namespace SeleniumFull
             get
             {
                 return driver;
+            }
+        }
+        public CartPage CartPage
+        {
+            get
+            {
+                return cartPage;
+            }
+        }
+        public ItemPage ItemPage
+        {
+            get
+            {
+                return itemPage;
+            }
+        }
+        public MainPage MainPage
+        {
+            get
+            {
+                return mainPage;
             }
         }
         public CommHelper Cmhelp

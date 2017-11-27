@@ -99,8 +99,8 @@ namespace SeleniumFull
         public static Llocator Sizes = new Llocator(Locator.XPath, sizes);
         public static string removeBtn = "//button[@name='remove_cart_item']";
         public static Llocator RemoveBtn = new Llocator(Locator.XPath, removeBtn);
-        public static string empty = "//*[@id='checkout-cart-wrapper']/p[1]/em";
-        public static Llocator Empty = new Llocator(Locator.XPath, empty);
+        public static string emptyCart = "//*[@id='checkout-cart-wrapper']/p[1]/em";
+        public static Llocator EmptyCart = new Llocator(Locator.XPath, emptyCart);
         public static string itemsNamesInCart = "//*[@id='order_confirmation-wrapper']//tr/td[@class='item']";
         public static Llocator ItemsNamesInCart = new Llocator(Locator.XPath, itemsNamesInCart);
         public static string itemsCountInCart = "//*[@id='order_confirmation-wrapper']//tr/td[@class='item']";
